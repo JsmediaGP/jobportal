@@ -1,0 +1,38 @@
+JOBPORTAL 
+
+The database consists of three main tables: **Users**, **Companies**, and **Jobs**.
+
+Users Table: This table stores user information searching for job.
+
+Companies Table: This table holds company details.
+
+Jobs Table: This table contains job listings.
+
+These tables are connected through relationships:
+ Users can have a role of user, admin, or company, and each user may have a company associated with them.
+ Companies are linked to their admin users and can post multiple job listings.
+ Job listings belong to specific companies.
+
+This structure enables company job posting, user job search, admin job and account approval, and company and user account management within the job portal application.
+
+### Tables and Relationships
+
+1. Users Table:
+    This table stores user information.
+    Fields: `id`, `name`, `email`, `password`, `status`, `remember_token`, `created_at`, `updated_at`.
+
+2. Companies Table:
+    This table stores company information.
+    Fields: `id`, `name`, `description`,`email`,`phone`,`address`,`password`,`status(approved, declined)`, `created_at`, `updated_at`
+
+3. Jobs Table:
+    This table stores job listing information.
+    Fields: `id`, `company_id` (foreign key to Companies table), `title`, `description`, `salary`, `status` (pending, approved, rejected), `created_at`, `updated_at`.
+
+### Model Relationships
+
+- Company Model:
+   Has many jobs (`hasMany` relationship).
+
+- Job Model:
+   Belongs to a company (`belongsTo` relationship).

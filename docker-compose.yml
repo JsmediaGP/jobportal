@@ -1,0 +1,31 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: jobportal-app
+    container_name: my-jobportal-container 
+    command: php artisan serve --host=0.0.0.0 --port=9100
+    volumes:
+      - .:/var/www/html
+    ports:
+      - "9100:9100"
+    depends_on:
+      - database
+
+
+  database:
+    image: mysql:latest
+    container_name: jobportal-mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: jobportal
+      MYSQL_PASSWORD: password
+    ports:
+      - "3301:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
