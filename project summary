@@ -1,6 +1,6 @@
 JOBPORTAL 
 
-The database consists of three main tables: **Users**, **Companies**, and **Jobs**.
+The database consists of three main tables: **JobSeeker**, **Companies**, and **Jobs**.
 
 Users Table: This table stores user information searching for job.
 
@@ -23,7 +23,7 @@ This structure enables company job posting, user job search, admin job and accou
 
 2. Companies Table:
     This table stores company information.
-    Fields: `id`, `name`, `description`,`email`,`phone`,`address`,`password`,`status(approved, declined)`, `created_at`, `updated_at`
+    Fields: `id`, `company_name`, `company_description`,`company_email`,`company_phone`,`company_address`,`company_password`,`account_status(approved, declined)`, `created_at`, `updated_at`
 
 3. Jobs Table:
     This table stores job listing information.
@@ -36,3 +36,8 @@ This structure enables company job posting, user job search, admin job and accou
 
 - Job Model:
    Belongs to a company (`belongsTo` relationship).
+
+
+
+
+
